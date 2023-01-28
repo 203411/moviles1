@@ -1,4 +1,5 @@
-import 'package:actividad1/pages/login.dart';
+// import 'package:actividad1/pages/login.dart';
+import 'package:actividad1/screens/body_boarding.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,9 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Login(),
+      home: const BodyBoarding(),
     );
   }
 }
-
-//C:\Users\solop\Documents\8vo Cuatrimestre\Programacion para moviles\Corte1\actividad1\lib\main.dart
