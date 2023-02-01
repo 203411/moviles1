@@ -1,4 +1,4 @@
-// import 'package:actividad1/pages/login.dart';
+
 import 'package:actividad1/screens/body_boarding.dart';
 import 'package:flutter/material.dart';
 

@@ -55,9 +55,9 @@ class RegisterList extends StatelessWidget {
             child: SizedBox(
               width: 150,
               height: 150,
-              // child: Image(
-              //   image: AssetImage('assets/images/avatar1.png'),
-              // ),
+              child: Image(
+                image: AssetImage('assets/images/avatar1.png'),
+              ),
             ),
           ),
           const Padding(
