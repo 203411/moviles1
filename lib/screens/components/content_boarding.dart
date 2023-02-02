@@ -1,27 +1,50 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 
 class ContentBoarding extends StatelessWidget {
-  const ContentBoarding({super.key, this.text, this.image});
-  final String? text, image;
+  const ContentBoarding({
+    Key? key,
+    required this.text,
+    required this.text1,
+    required this.image,
+  }) : super(key: key);
+
+  final String text, text1, image;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: Text(
-            text!,
-            style: const TextStyle(fontSize: 30),
-          ),
-        ),
-        Image.asset(
-          image!,
-          width: 100,
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 60.0, bottom: 40),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            Image.asset(
+              image,
+              width: 200,
+              height: 200,
+            ),
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.deepPurple,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Roboto',
+              ),
+            )
+          ]),
+          Padding(
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                text1,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20,
+                ),
+              ))
+        ],
+      ),
     );
   }
 }

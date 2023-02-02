@@ -1,5 +1,7 @@
 
-import 'package:actividad1/screens/body_boarding.dart';
+// import 'package:actividad1/screens/body_boarding.dart';
+import 'package:actividad1/screens/components/on_boarding.dart';
+import 'package:actividad1/screens/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,11 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Corte 1',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.blue,
       ),
-      home: const BodyBoarding(),
+      home: OnBoarding(),
     );
   }
 }
