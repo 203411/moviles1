@@ -1,6 +1,6 @@
 
 // import 'package:actividad1/screens/body_boarding.dart';
-import 'package:actividad1/screens/components/on_boarding.dart';
+// import 'package:actividad1/screens/components/on_boarding.dart';
 import 'package:actividad1/screens/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // primarySwatch: Colors.blue,
       ),
-      home: OnBoarding(),
+      home: SplashView(),
     );
   }
 }
