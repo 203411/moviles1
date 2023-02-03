@@ -20,13 +20,13 @@ class ContentBoarding extends StatelessWidget {
           Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
             Image.asset(
               image,
-              width: 200,
-              height: 200,
+              width: 300,
+              height: 300,
             ),
             Text(
               text,
               style: const TextStyle(
-                color: Colors.deepPurple,
+                color: Color.fromARGB(255, 83, 37, 162),
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Roboto',
@@ -34,13 +34,14 @@ class ContentBoarding extends StatelessWidget {
             )
           ]),
           Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.only(top: 40),
               child: Text(
                 text1,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Colors.grey,
-                  fontSize: 20,
+                  fontSize: 22,
+                  fontFamily: 'Roboto',
                 ),
               ))
         ],

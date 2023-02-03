@@ -10,8 +10,8 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> {
-  int pages = 0;
-  List<Map<String, String>> onBoardingDatas = [
+  int currentPage = 0;
+  List<Map<String, String>> listBoarding = [
     {
       "text": "ESPARCIMIENTO",
       "text1": "Brindamos todos los servicios para consentir a tu mascota",
@@ -52,42 +52,23 @@ class _OnBoardingState extends State<OnBoarding> {
           child: PageView.builder(
             onPageChanged: (value) {
               setState(() {
-                pages = value;
+                currentPage = value;
               });
             },
-            itemCount: onBoardingDatas.length,
+            itemCount: listBoarding.length,
             itemBuilder: (context, index) => ContentBoarding(
-              text: onBoardingDatas[pages]["text"]!,
-              text1: onBoardingDatas[pages]["text1"]!,
-              image: onBoardingDatas[pages]["image"]!,
+              text: listBoarding[currentPage]["text"]!,
+              text1: listBoarding[currentPage]["text1"]!,
+              image: listBoarding[currentPage]["image"]!,
             ),
           ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (int i = 0; i < onBoardingDatas.length; i++)
-              if (i == pages)
-                Container(
-                  margin: const EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                    color: Colors.pinkAccent,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  width: 30,
-                  height: 7,
-                )
-              else
-                Container(
-                  margin: const EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 199, 199, 199),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  width: 20,
-                  height: 5,
-                )
-          ],
+          children: List.generate(
+            listBoarding.length,
+            (index) => Pages(index: index, currentPage: currentPage),
+          ),
         ),
         Expanded(
             flex: 1,
@@ -104,38 +85,47 @@ class _OnBoardingState extends State<OnBoarding> {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(40.0),
             side: BorderSide(
-                color: pages == 4
+                color: currentPage == 4
                     ? Colors.green
                     : Color.fromARGB(255, 197, 196, 196),
                 width: 2)),
         minimumSize: Size(width, height),
-        backgroundColor: pages == 4 ? Colors.green : Colors.white,
+        backgroundColor: currentPage == 4 ? Colors.green : Colors.white,
         padding: const EdgeInsets.all(0));
     return Padding(
       padding: const EdgeInsets.only(top: 50, bottom: 50),
       child: TextButton(
-        onPressed: pages < 4
-            ? cambiarVista
-            : () {
-                Route route =
-                    MaterialPageRoute(builder: (bc) => const SplashView());
-                Navigator.of(context).push(route);
-              },
+        onPressed: cambiarVista,
         style: flatButtonStyle,
-        child: Text(pages == 4 ? "Continuar" : "Siguiente",
+        child: Text(currentPage == 4 ? "Continuar" : "Siguiente",
             style: TextStyle(
-                fontSize: 20,
-                color: pages == 4 ? Colors.white : Colors.grey,
-                fontWeight: FontWeight.bold)),
+              fontSize: 20,
+              color: currentPage == 4 ? Colors.white : Colors.grey,
+              fontWeight: FontWeight.bold,
+            )),
       ),
     );
   }
 
   void cambiarVista() {
-    if (pages < 4) {
+    if (currentPage < 4) {
       setState(() {
-        pages++;
+        currentPage++;
       });
     }
   }
+}
+
+AnimatedContainer Pages({required int index, required int currentPage}) {
+  return AnimatedContainer(
+    duration: const Duration(milliseconds: 300),
+    margin: const EdgeInsets.all(3),
+    height: currentPage == index ? 7 : 5,
+    width: currentPage == index ? 30 : 20,
+    decoration: BoxDecoration(
+        color: currentPage == index
+            ? Colors.pinkAccent
+            : Color.fromARGB(255, 199, 199, 199),
+        borderRadius: BorderRadius.circular(3)),
+  );
 }
