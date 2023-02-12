@@ -1,4 +1,4 @@
-import 'package:actividad1/screens/splash_view.dart';
+import 'package:actividad1/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:actividad1/screens/components/content_boarding.dart';
 

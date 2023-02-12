@@ -1,8 +1,15 @@
 
 // import 'package:actividad1/screens/body_boarding.dart';
 // import 'package:actividad1/screens/components/on_boarding.dart';
-import 'package:actividad1/screens/splash_view.dart';
+import 'package:actividad1/pages/change_password.dart';
+import 'package:actividad1/pages/forgot_password.dart';
+import 'package:actividad1/pages/home.dart';
+import 'package:actividad1/pages/login.dart';
+import 'package:actividad1/pages/register.dart';
+import 'package:actividad1/splash/splash_view.dart';
 import 'package:flutter/material.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +27,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // primarySwatch: Colors.blue,
       ),
-      home: SplashView(),
+      initialRoute: 'home',
+      routes: {
+        'login': (context) => const Login(),
+        'home': (context) => const HomePage(),
+        'splash': (context) => const SplashView(),
+        'register': (context) =>  Register(),
+        'changePassword': (context) => const ChangePassword(),
+        'forgotPassword': (context) => const ForgotPassword(),
+
+      },
+      
+
     );
   }
 }
