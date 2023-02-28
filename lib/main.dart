@@ -1,6 +1,3 @@
-
-// import 'package:actividad1/screens/body_boarding.dart';
-// import 'package:actividad1/screens/components/on_boarding.dart';
 import 'package:actividad1/pages/change_password.dart';
 import 'package:actividad1/pages/forgot_password.dart';
 import 'package:actividad1/pages/home.dart';
