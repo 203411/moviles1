@@ -2,6 +2,6 @@
 <resources>
     <string name="facebook_app_id">1168717120510526</string>
     <string name="facebook_client_token">47ecd34155692dce1e80bb8e4175859e</string>
-    <string name="app_name">Actividad1</string>
+    <string name="app_name">Firebase Auth</string>
     <string name="fb_login_protocol_scheme">fb1168717120510526</string>
 </resources>

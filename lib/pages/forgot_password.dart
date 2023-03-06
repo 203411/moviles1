@@ -119,7 +119,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const ChangePassword()));
+                                            ChangePassword()));
                                 await showDialog(
                                   context: context,
                                   builder: (context) => AlertDialog(

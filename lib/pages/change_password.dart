@@ -14,7 +14,7 @@ class _ChangePasswordState extends State<ChangePassword> {
   String password = '';
   String password2 = '';
   final ApiAuth _apiAuth = ApiAuth();
-
+  
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -160,10 +160,10 @@ class _ChangePasswordState extends State<ChangePassword> {
                                   if(password == password2){
                                     SharedPreferences prefs =
                                         await SharedPreferences.getInstance();
-                                    String token = prefs.getString('token')!;
-                                    int id = prefs.getInt('id')!;
+                                    // String token = prefs.getString('token')!;
+                                    // int id = prefs.getInt('id')!;
                                     String respuesta = await _apiAuth
-                                        .changePassword(password, id, token);
+                                        .changePassword(password,password2);
                                     await showDialog(context: context, builder: (BuildContext context){
                                       return AlertDialog(
                                         title: const Text('Información'),

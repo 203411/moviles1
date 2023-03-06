@@ -1,4 +1,4 @@
-import 'package:actividad1/pages/change_password.dart';
+import 'package:actividad1/pages/others/change_password copy.dart';
 import 'package:actividad1/pages/forgot_password.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

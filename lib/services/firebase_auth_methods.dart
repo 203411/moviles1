@@ -60,5 +60,14 @@ class FirebaseAuthMethods {
       print("Falló cierre de sesion");   
     }
   }
- 
+  // DELETE ACCOUNT
+  Future<void> deleteAccount(BuildContext context) async {
+    try {
+      await _auth.currentUser!.delete();
+    } on FirebaseAuthException catch (e) {
+      showSnackBar(context, e.message!); // Displaying the error message
+      // if an error of requires-recent-login is thrown, make sure to log
+      // in user again and then delete account.
+    }
+  }
 }

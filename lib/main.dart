@@ -54,9 +54,19 @@ class MyApp extends StatelessWidget {
           'forgotPassword': (context) => const ForgotPassword(),
     
         },
-        
-    
       ),
     );
   }
 }
+
+// class AuthWrapper extends StatelessWidget {
+//   const AuthWrapper({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final firebaseUser = context.watch<User?>();
+//     if (firebaseUser != null) {
+//       return const HomePage();
+//     }
+//     return const Login();
+//   }
