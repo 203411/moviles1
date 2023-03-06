@@ -1,7 +1,10 @@
 import 'package:actividad1/pages/login.dart';
 import 'package:actividad1/pages/register.dart';
+import 'package:actividad1/services/firebase_auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,6 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -46,7 +50,19 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               margin: const EdgeInsets.only(top: 50),
                               child: ElevatedButton(
-                                onPressed: () => {},
+                                onPressed: () {
+                                  try {
+                                    context.read<FirebaseAuthMethods>().signInWithGoogle(context);
+                                    Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                            builder: (_) => const HomePage()));
+                                  } on FirebaseAuthException catch (e) {
+                                    print(
+                                        'Error de inicio de sesión con Google: $e');
+                                  } catch (e) {
+                                    print('Error: $e');
+                                  }
+                                },
                                 style: ElevatedButton.styleFrom(
                                     minimumSize: const Size(300, 48),
                                     backgroundColor: const Color(0xff3169f5),
@@ -73,7 +89,19 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               margin: const EdgeInsets.only(top: 20),
                               child: ElevatedButton(
-                                onPressed: () => {},
+                                onPressed: () async {
+                                  try {
+                                    context.read<FirebaseAuthMethods>().signInWithFacebook(context);
+                                    Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                            builder: (_) => const HomePage()));
+                                  } on FirebaseAuthException catch (e) {
+                                    print(
+                                        'Error de inicio de sesión con Facebook: $e');
+                                  } catch (e) {
+                                    print('Error: $e');
+                                  }
+                                },
                                 style: ElevatedButton.styleFrom(
                                     minimumSize: const Size(300, 48),
                                     backgroundColor: const Color(0xff324fa5),

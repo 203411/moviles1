@@ -11,10 +11,6 @@ class ApiAuth {
     final response = await _dio.post('direccion', data: {
       'email': email,
       'password': password,
-      "idPlatform": 2,
-      "idRole": 1,
-      "idDevice": "string",
-      "idChannel": 0
     });
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -29,16 +25,9 @@ class ApiAuth {
 
   Future<String> register(String email, String password, String name) async {
     final response = await _dio.post('direccion', data: {
-      "idUser": 0,
       "email": email,
       "name": name,
-      "phoneNumber": "123456789",
       "pass": password,
-      "idRole": 1,
-      "idPlatform": 2,
-      "idChannel": 1,
-      "guest": "123",
-      "lasName": "algo"
     });
     _logger.i('Response: ${response.data}');
     return 'Respuesta: ${response.data}';

@@ -4,6 +4,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../models/user_model.dart';
+import 'package:actividad1/services/login_interface.dart';
+import 'package:actividad1/services/login_service.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -13,6 +16,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final ILogin loginService = LoginService();
   bool _isObscure = true;
   String email = "";
   String password = "";
@@ -93,7 +97,6 @@ class _LoginState extends State<Login> {
                           ),
                           onChanged: (text) {
                             email = text;
-                        
                           },
                         ),
                       ),
@@ -167,15 +170,23 @@ class _LoginState extends State<Login> {
                           height: 50,
                           child: ElevatedButton(
                               onPressed: () async {
-                                String respuesta = await apiAuth.login(email, password);
-                                SharedPreferences prefs = await SharedPreferences.getInstance();
-                                if(prefs.getBool('code')==true){
-                                  Navigator.pushNamed(context, 'change_password');
+                              // UserModel? user = await loginService.login(email, password);
+
+                                String respuesta =
+                                    await apiAuth.login(email, password);
+                                SharedPreferences prefs =
+                                    await SharedPreferences.getInstance();
+                                if (prefs.getBool('code') == true) {
+                                  Navigator.pushNamed(
+                                      context, 'change_password');
+                                  
                                 }
                                 await showDialog(
                                     context: context,
-                                    builder: (BuildContext context) => AlertDialog(
-                                          title: const Text('Información del usuario'),
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                          title: const Text(
+                                              'Información del usuario'),
                                           content: Text(respuesta),
                                           actions: [
                                             TextButton(

@@ -1,6 +1,9 @@
 import 'package:actividad1/api/apiAuth.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/user_model.dart';
+import '../../services/register_interface.dart';
+import '../../services/register_service.dart';
 import 'package:actividad1/pages/login.dart';
 
 class Register extends StatefulWidget {
@@ -11,6 +14,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final IRegister registerService = RegisterService();
   bool _isObscure = true;
   bool _check = false;
   final ApiAuth apiAuth = ApiAuth();
@@ -234,8 +238,6 @@ class _RegisterState extends State<Register> {
                                     if (_check) {
                                       String result = await apiAuth.register(
                                           name, email, password);
-
-                                      // ignore: use_build_context_synchronously
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
@@ -249,9 +251,13 @@ class _RegisterState extends State<Register> {
                                           actions: [
                                             TextButton(
                                               child: const Text('Aceptar'),
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
+                                              onPressed: () async {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              const Login()));
+                                                },
                                             ),
                                           ],
                                         ),
