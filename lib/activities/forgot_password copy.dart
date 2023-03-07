@@ -1,4 +1,4 @@
-import 'package:actividad1/pages/others/change_password copy.dart';
+import 'package:actividad1/activities/change_password copy.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {

@@ -5,7 +5,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-
+import 'package:actividad1/services/firebase_services.dart';
+import 'package:actividad1/screens/home_screen_google.dart';
+import 'package:actividad1/screens/home_screen_facebook.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,7 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -52,17 +53,26 @@ class _HomePageState extends State<HomePage> {
                               margin: const EdgeInsets.only(top: 50),
                               child: ElevatedButton(
                                 onPressed: () {
-                                  try {
-                                    context.read<FirebaseAuthMethods>().signInWithGoogle(context);
-                                    Navigator.of(context).pushReplacement(
+                                  // try {
+                                  //   context.read<FirebaseAuthMethods>().signInWithGoogle(context);
+                                  //   Navigator.of(context).pushReplacement(
+                                  //       MaterialPageRoute(
+                                  //           builder: (_) => const HomePage()));
+                                  // } on FirebaseAuthException catch (e) {
+                                  //   print(
+                                  //       'Error de inicio de sesión con Google: $e');
+                                  // } catch (e) {
+                                  //   print('Error: $e');
+                                  // }
+                                  signup(context);
+                                  Future.delayed(const Duration(seconds: 2),
+                                      () {
+                                    Navigator.push(
+                                        context,
                                         MaterialPageRoute(
-                                            builder: (_) => const HomePage()));
-                                  } on FirebaseAuthException catch (e) {
-                                    print(
-                                        'Error de inicio de sesión con Google: $e');
-                                  } catch (e) {
-                                    print('Error: $e');
-                                  }
+                                            builder: (context) =>
+                                                const HomeScreenFb()));
+                                  });
                                 },
                                 style: ElevatedButton.styleFrom(
                                     minimumSize: const Size(300, 48),
@@ -91,17 +101,26 @@ class _HomePageState extends State<HomePage> {
                               margin: const EdgeInsets.only(top: 20),
                               child: ElevatedButton(
                                 onPressed: () async {
-                                  try {
-                                    context.read<FirebaseAuthMethods>().signInWithFacebook(context);
-                                    Navigator.of(context).pushReplacement(
+                                  // try {
+                                  //   // context.read<FirebaseAuthMethods>().signInWithFacebook(context);
+
+                                  //   Navigator.of(context).pushReplacement(
+                                  //       MaterialPageRoute(
+                                  //           builder: (_) => const HomePage()));
+                                  // } on FirebaseAuthException catch (e) {
+                                  //   print(
+                                  //       'Error de inicio de sesión con Facebook: $e');
+                                  // } catch (e) {
+                                  //   print('Error: $e');
+                                  // }
+                                  signInWithFacebook();
+                                  Future.delayed(const Duration(seconds: 2), () {
+                                    Navigator.push(
+                                        context,
                                         MaterialPageRoute(
-                                            builder: (_) => const HomePage()));
-                                  } on FirebaseAuthException catch (e) {
-                                    print(
-                                        'Error de inicio de sesión con Facebook: $e');
-                                  } catch (e) {
-                                    print('Error: $e');
-                                  }
+                                            builder: (context) =>
+                                                const HomeScreenFb()));
+                                  });
                                 },
                                 style: ElevatedButton.styleFrom(
                                     minimumSize: const Size(300, 48),
