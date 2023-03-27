@@ -1,5 +1,6 @@
 import 'package:actividad1/api/apiAuth.dart';
 import 'package:actividad1/pages/forgot_password.dart';
+import 'package:actividad1/pages/menu.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
@@ -175,6 +176,7 @@ class _LoginState extends State<Login> {
 
                                 String respuesta =
                                     await apiAuth.login(email, password);
+                                int idUser = respuesta.indexOf('userId');
                                 SharedPreferences prefs =
                                     await SharedPreferences.getInstance();
                                 // if (prefs.getBool('code') == true) {
@@ -196,7 +198,22 @@ class _LoginState extends State<Login> {
                                 //                 child: const Text('Cancelar'))
                                 //           ],
                                 //         ));
-                                await Navigator.pushNamed(context, 'menu');
+                                await showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                          title: const Text(
+                                              'Información del usuario'),
+                                          content: Text(respuesta),
+                                          actions: [
+                                            TextButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text('Cancelar'))
+                                          ],
+                                        ));
+                                await Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
                                 await Future.delayed(
                                     const Duration(seconds: 3));
                               },

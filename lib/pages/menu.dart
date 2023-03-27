@@ -1,3 +1,4 @@
+import 'package:actividad1/datos/components/on_boarding.dart';
 import 'package:actividad1/pages/profile.dart';
 import 'package:actividad1/splash/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +7,8 @@ import 'package:actividad1/graficas/components/grafica_on_boarding.dart';
 import 'package:actividad1/graficas/components/grafica_boarding.dart';
 
 class Menu extends StatefulWidget {
-  const Menu({Key? key}) : super(key: key);
-
+  const Menu( {Key? key}) : super(key: key);
+  
   @override
   State<Menu> createState() => _MenuState();
 }
@@ -19,7 +20,7 @@ class _MenuState extends State<Menu> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const _pages = <Widget>[
     Graficas(),
-    Menu(),
+    OnBoarding(),
     Profile(),
   ];
   static const _titlesPages = <String>[

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  const Profile( {Key? key}) : super(key: key);
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -534,7 +534,7 @@ class _ProfileState extends State<Profile> {
                                           telefonoEmergencia,
                                           institucion,
                                           seguroSocial,
-                                          medicoTratante);
+                                          medicoTratante, 1);
                                       await showDialog(
                                         context: context,
                                         builder: (context) => AlertDialog(
