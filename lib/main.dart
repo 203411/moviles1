@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           'splash': (context) => const SplashView(),
           'register': (context) =>  Register(),
           'changePassword': (context) => const ChangePassword(),
-          'forgotPassword': (context) => const ForgotPassword(),
+          // 'forgotPassword': (context) => const ForgotPassword(),
     
         },
       ),
