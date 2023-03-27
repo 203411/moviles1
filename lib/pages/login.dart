@@ -27,8 +27,9 @@ class _LoginState extends State<Login> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.pink),
-        backgroundColor: Colors.deepPurple,
+        iconTheme: const IconThemeData(color: Colors.white),
+        // backgroundColor: Colors.deepPurple,
+        backgroundColor: Color(0xffFF3941),
         title: Row(
           children: const [
             SizedBox(width: 10),
@@ -139,25 +140,25 @@ class _LoginState extends State<Login> {
                           },
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          child: const Text(
-                            '¿Has olvidado tu contraseña?',
-                            style: TextStyle(
-                                color: Colors.pinkAccent, fontSize: 13),
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ForgotPassword(),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
+                      // Container(
+                      //   margin: const EdgeInsets.only(right: 10),
+                      //   alignment: Alignment.centerRight,
+                      //   child: TextButton(
+                      //     child: const Text(
+                      //       '¿Has olvidado tu contraseña?',
+                      //       style: TextStyle(
+                      //           color: Colors.pinkAccent, fontSize: 13),
+                      //     ),
+                      //     onPressed: () {
+                      //       Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //           builder: (context) => const ForgotPassword(),
+                      //         ),
+                      //       );
+                      //     },
+                      //   ),
+                      // ),
                     ],
                   ),
                   Column(

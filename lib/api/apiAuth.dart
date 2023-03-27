@@ -29,12 +29,23 @@ class ApiAuth {
   }
 
 
-  Future<String> register(String name, String email, String password) async {
+  Future<String> register(String name, String email, String password, String edad, String sexo, String estatura, String peso, String fechaNacimiento, String domicilio, String telefonoPersonal, String telefonoEmergencia, String institucion, String seguroSocial, String medicoTratante) async {
     final response =
         await _dio.post('http://192.168.0.16:3000/api/register', data: {
       "email": email,
       "name": name,
       "password": password,
+      "edad": edad,
+      "sexo": sexo,
+      "estatura": estatura,
+      "peso": peso,
+      "fecha_nacimiento": fechaNacimiento,
+      "domicilio": domicilio,
+      "telefono_personal": telefonoPersonal,
+      "telefono_emergencia": telefonoEmergencia,	
+      "institucion":institucion,
+      "seguro_social":seguroSocial,
+      "medico_tratante" : medicoTratante
     });
     _logger.i('Response: ${response.data}');
     return 'Respuesta: ${response.data}';

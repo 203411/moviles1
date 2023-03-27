@@ -20,15 +20,27 @@ class _RegisterState extends State<Register> {
   final ApiAuth apiAuth = ApiAuth();
   String email = '';
   String password = '';
-  String name = '';
+  String edad = '';
+  String sexo = '';
+  String estatura = '';
+  String peso = '';
+  String fechaNacimiento = '';
+  String domicilio = '';
+  String nombre = '';
+  String telefonoPersonal = '';
+  String telefonoEmergencia = '';
+  String institucion = '';
+  String seguroSocial = '';
+  String medicoTratante = '';
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.pink),
-        backgroundColor: Colors.deepPurple,
+        iconTheme: const IconThemeData(color: Colors.white),
+        // backgroundColor: Colors.deepPurple,
+        backgroundColor: Color(0xffFF3941),
         title: Row(
           children: const [
             SizedBox(width: 10),
@@ -71,11 +83,13 @@ class _RegisterState extends State<Register> {
                             ),
                           ),
                           Container(
+                            alignment: Alignment.centerLeft,
                             padding: const EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 0),
-                            margin: const EdgeInsets.only(right: 250),
+                            margin: const EdgeInsets.only(left: 20),
                             child: const Text(
                               'Nombre',
+                              textAlign: TextAlign.left,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 15),
                             ),
@@ -95,14 +109,316 @@ class _RegisterState extends State<Register> {
                                 hintText: 'Nombre completo',
                               ),
                               onChanged: (value) {
-                                name = value;
+                                nombre = value;
+                              },
+                            ),
+                          ),
+                         
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Edad',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Edad',
+                              ),
+                              onChanged: (value) {
+                                edad = value;
                               },
                             ),
                           ),
                           Container(
+                            alignment: Alignment.centerLeft,
                             padding: const EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 0),
-                            margin: const EdgeInsets.only(right: 190),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Sexo',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Sexo',
+                              ),
+                              onChanged: (value) {
+                                sexo = value;
+                              },
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Fecha de nacimiento',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Fecha de nacimiento',
+                              ),
+                              onChanged: (value) {
+                                fechaNacimiento = value;
+                              },
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Estatura',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Estatura',
+                              ),
+                              onChanged: (value) {
+                                estatura = value;
+                              },
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Peso',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Peso',
+                              ),
+                              onChanged: (value) {
+                                peso = value;
+                              },
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Seguro Social',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Seguro Social',
+                              ),
+                              onChanged: (value) {
+                                seguroSocial = value;
+                              },
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Medico Tratante',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Medico Tratante',
+                              ),
+                              onChanged: (value) {
+                                medicoTratante = value;
+                              },
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Domicilio',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Domicilio',
+                              ),
+                              onChanged: (value) {
+                                domicilio = value;
+                              },
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Telefono Personal',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Telefono',
+                              ),
+                              onChanged: (value) {
+                                telefonoPersonal = value;
+                              },
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
+                            child: const Text(
+                              'Telefono de Emergencia',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 20, left: 20),
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(fontSize: 15),
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    borderSide: BorderSide(
+                                        color: Colors.black, width: 1)),
+                                hintText: 'Telefono',
+                              ),
+                              onChanged: (value) {
+                                telefonoEmergencia = value;
+                              },
+                            ),
+                          ),
+                           Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 0),
+                            margin: const EdgeInsets.only(left: 20),
                             child: const Text(
                               'Correo electrónico',
                               style: TextStyle(
@@ -128,10 +444,12 @@ class _RegisterState extends State<Register> {
                               },
                             ),
                           ),
+
                           Container(
+                            alignment: Alignment.centerLeft,
                             padding: const EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 0),
-                            margin: const EdgeInsets.only(right: 250, left: 20),
+                            margin: const EdgeInsets.only(left: 20),
                             child: const Text(
                               'Contraseña',
                               style: TextStyle(
@@ -229,15 +547,30 @@ class _RegisterState extends State<Register> {
                       Column(
                         children: [
                           Container(
-                            padding: const EdgeInsets.only(top: 60),
+                            margin: const EdgeInsets.only(top: 40),
                             child: SizedBox(
                               width: size.width - 70,
                               height: 50,
                               child: ElevatedButton(
                                   onPressed: () async {
                                     if (_check) {
+                                      // String result = await apiAuth.register(
+                                      // nombre, email, password);
                                       String result = await apiAuth.register(
-                                          name, email, password);
+                                          nombre,
+                                          email,
+                                          password,
+                                          edad,
+                                          sexo,
+                                          estatura,
+                                          peso,
+                                          fechaNacimiento,
+                                          domicilio,
+                                          telefonoPersonal,
+                                          telefonoEmergencia,
+                                          institucion,
+                                          seguroSocial,
+                                          medicoTratante);
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
@@ -252,12 +585,12 @@ class _RegisterState extends State<Register> {
                                             TextButton(
                                               child: const Text('Aceptar'),
                                               onPressed: () async {
-                                                  Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              const Login()));
-                                                },
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            const Login()));
+                                              },
                                             ),
                                           ],
                                         ),
