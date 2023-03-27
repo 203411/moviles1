@@ -1,5 +1,5 @@
 import 'dart:ui' as ui;
-import 'package:actividad1/screens/components/on_boarding.dart';
+import 'package:actividad1/datos/components/on_boarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

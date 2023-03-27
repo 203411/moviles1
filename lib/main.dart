@@ -1,8 +1,10 @@
 import 'package:actividad1/firebase_options.dart';
+import 'package:actividad1/graficas/components/grafica_on_boarding.dart';
 import 'package:actividad1/pages/change_password.dart';
 import 'package:actividad1/pages/forgot_password.dart';
 import 'package:actividad1/pages/home.dart';
 import 'package:actividad1/pages/login.dart';
+import 'package:actividad1/pages/menu.dart';
 import 'package:actividad1/pages/register.dart';
 import 'package:actividad1/services/firebase_auth_methods.dart';
 import 'package:actividad1/splash/splash_view.dart';
@@ -11,6 +13,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:actividad1/pages/profile.dart';
+import 'package:actividad1/datos/components/on_boarding.dart';
 
 
 
@@ -48,11 +52,13 @@ class MyApp extends StatelessWidget {
         routes: {
           'login': (context) => const Login(),
           'home': (context) => const HomePage(),
-          'splash': (context) => const SplashView(),
+          'splash': (context) => const OnBoarding(),
           'register': (context) =>  Register(),
           'changePassword': (context) => const ChangePassword(),
           'forgotPassword': (context) => const ForgotPassword(),
-    
+          'profile': (context) => const Profile(),
+          'graficas': (context) => const Graficas(),
+          'menu':(context) => const Menu(),
         },
       ),
     );

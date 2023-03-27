@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:actividad1/services/firebase_services.dart';
-import 'package:actividad1/screens/home_screen_google.dart';
-import 'package:actividad1/screens/home_screen_facebook.dart';
+import 'package:actividad1/datos/home_screen_google.dart';
+import 'package:actividad1/datos/home_screen_facebook.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -71,38 +71,35 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Container(
-                              margin: const EdgeInsets.only(top: 20),
-                              child: ElevatedButton(
-                                onPressed: () => {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const Login()),
-                                  )
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  minimumSize: const Size(300, 48),
-                                  // backgroundColor: const Color(0xffFFFFFF),
-                                  // shape: RoundedRectangleBorder(
-                                  //     borderRadius:
-                                  //         BorderRadius.circular(50.0))),
-                                ),
-                                child: Row(
-                                  children: const [
-                                    Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10)),
-                                    Text(
-                                      'Iniciar Sesion',
-                                      style: TextStyle(fontSize: 18),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                  margin: const EdgeInsets.only(top: 20),
+                                  child: TextButton(
+                                    onPressed: () => {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Login()),
+                                      )
+                                    },
+                                    child: const Text(
+                                      'Iniciar Sesión',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Roboto',
+                                      ),
                                     ),
-                                  ],
-                                ),
-                              ))
+                                  )),
+                            ],
+                          ),
                         ],
                       ),
                     ],

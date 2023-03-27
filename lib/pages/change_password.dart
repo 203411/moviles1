@@ -21,8 +21,8 @@ class _ChangePasswordState extends State<ChangePassword> {
     return Scaffold(
         // resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          iconTheme: const IconThemeData(color: Colors.pink),
-          backgroundColor: Colors.deepPurple,
+          iconTheme: const IconThemeData(color: Colors.white),
+          backgroundColor: Color(0xffFF3941),
           title: Row(
             children: const [
               SizedBox(width: 10),
@@ -31,7 +31,7 @@ class _ChangePasswordState extends State<ChangePassword> {
               Align(
                 alignment: Alignment.centerRight,
                 child: Image(
-                  image: AssetImage('assets/images/avatar1.png'),
+                  image: AssetImage('assets/images/splash2.png'),
                   height: 30,
                 ),
               ),
@@ -151,7 +151,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                               height: 50,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.green,
+                                  backgroundColor: Color(0xffFF3941),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(100),
                                   ),

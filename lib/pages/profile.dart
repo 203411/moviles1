@@ -1,20 +1,15 @@
 import 'package:actividad1/api/apiAuth.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/user_model.dart';
-import '../../services/register_interface.dart';
-import '../../services/register_service.dart';
-import 'package:actividad1/pages/login.dart';
 
-class Register extends StatefulWidget {
-  Register({Key? key}) : super(key: key);
+class Profile extends StatefulWidget {
+  const Profile({Key? key}) : super(key: key);
 
   @override
-  State<Register> createState() => _RegisterState();
+  State<Profile> createState() => _ProfileState();
 }
 
-class _RegisterState extends State<Register> {
-  final IRegister registerService = RegisterService();
+class _ProfileState extends State<Profile> {
   bool _isObscure = true;
   bool _check = false;
   final ApiAuth apiAuth = ApiAuth();
@@ -37,25 +32,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white),
-        // backgroundColor: Colors.deepPurple,
-        backgroundColor: Color(0xffFF3941),
-        title: Row(
-          children: const [
-            SizedBox(width: 10),
-            Text('Regístrate'),
-            Spacer(),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Image(
-                image: AssetImage('assets/images/splash2.png'),
-                height: 35,
-              ),
-            ),
-          ],
-        ),
-      ),
+      
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(right: 10, left: 8),
@@ -528,50 +505,7 @@ class _RegisterState extends State<Register> {
                                   color: Color.fromARGB(190, 163, 163, 163)),
                             ),
                           ),
-                          Container(
-                            padding: const EdgeInsets.only(top: 30, left: 15),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Checkbox(
-                                  value: _check,
-                                  onChanged: (check) {
-                                    setState(() {
-                                      _check = check!;
-                                    });
-                                  },
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(50)),
-                                ),
-                                SizedBox(
-                                  height: 35,
-                                  child: RichText(
-                                    maxLines: 2,
-                                    text: const TextSpan(
-                                      children: [
-                                        TextSpan(
-                                            text: "Al registrarme, acepto ",
-                                            style:
-                                                TextStyle(color: Colors.black)),
-                                        TextSpan(
-                                            text: "los términos y condiciones ",
-                                            style: TextStyle(
-                                                color: Colors.pinkAccent)),
-                                        TextSpan(
-                                            text: "\ny la ",
-                                            style:
-                                                TextStyle(color: Colors.black)),
-                                        TextSpan(
-                                            text: "política de privacidad",
-                                            style: TextStyle(
-                                                color: Colors.pinkAccent)),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          
                         ],
                       ),
                       Column(
@@ -583,10 +517,10 @@ class _RegisterState extends State<Register> {
                               height: 50,
                               child: ElevatedButton(
                                   onPressed: () async {
-                                    if (_check) {
-                                      // String result = await apiAuth.register(
+                                    
+                                      // String result = await apiAuth.Profile(
                                       // nombre, email, password);
-                                      String result = await apiAuth.register(
+                                      String result = await apiAuth.profile(
                                           nombre,
                                           email,
                                           password,
@@ -601,37 +535,11 @@ class _RegisterState extends State<Register> {
                                           institucion,
                                           seguroSocial,
                                           medicoTratante);
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const Login()));
                                       await showDialog(
                                         context: context,
                                         builder: (context) => AlertDialog(
-                                          title: const Text('Registro'),
+                                          title: const Text('Datos actualizados'),
                                           content: Text(result),
-                                          actions: [
-                                            TextButton(
-                                              child: const Text('Aceptar'),
-                                              onPressed: () async {
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            const Login()));
-                                              },
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    } else {
-                                      showDialog(
-                                        context: context,
-                                        builder: (context) => AlertDialog(
-                                          title: const Text('Error'),
-                                          content: const Text(
-                                              'Acepte los términos y condiciones'),
                                           actions: [
                                             TextButton(
                                               child: const Text('Aceptar'),
@@ -642,7 +550,7 @@ class _RegisterState extends State<Register> {
                                           ],
                                         ),
                                       );
-                                    }
+                                    
                                   },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Color(0xffFF3941),
@@ -650,30 +558,12 @@ class _RegisterState extends State<Register> {
                                           borderRadius:
                                               BorderRadius.circular(25))),
                                   child: const Text(
-                                    'Crear Cuenta',
+                                    'Guardar',
                                     style: TextStyle(fontSize: 18),
                                   )),
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                '¿Ya tienes cuenta?',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(context, 'login');
-                                },
-                                child: const Text(
-                                  'Iniciar sesión',
-                                  style: TextStyle(
-                                      color: Colors.pinkAccent, fontSize: 16),
-                                ),
-                              )
-                            ],
-                          ),
+                          
                         ],
                       )
                     ],

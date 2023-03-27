@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 
 import 'components/on_boarding.dart';
-// import 'package:flutter/src/widgets/container.dart';
-// import 'package:flutter/src/widgets/framework.dart';
 
 class BodyBoarding extends StatefulWidget {
   const BodyBoarding({super.key});

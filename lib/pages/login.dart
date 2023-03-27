@@ -38,7 +38,7 @@ class _LoginState extends State<Login> {
             Align(
               alignment: Alignment.centerRight,
               child: Image(
-                image: AssetImage('assets/images/avatar1.png'),
+                image: AssetImage('assets/images/splash2.png'),
                 height: 30,
               ),
             ),
@@ -171,37 +171,37 @@ class _LoginState extends State<Login> {
                           height: 50,
                           child: ElevatedButton(
                               onPressed: () async {
-                              // UserModel? user = await loginService.login(email, password);
+                                // UserModel? user = await loginService.login(email, password);
 
                                 String respuesta =
                                     await apiAuth.login(email, password);
                                 SharedPreferences prefs =
                                     await SharedPreferences.getInstance();
-                                if (prefs.getBool('code') == true) {
-                                  Navigator.pushNamed(
-                                      context, 'change_password');
-                                  
-                                }
-                                await showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) =>
-                                        AlertDialog(
-                                          title: const Text(
-                                              'Información del usuario'),
-                                          content: Text(respuesta),
-                                          actions: [
-                                            TextButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: const Text('Cancelar'))
-                                          ],
-                                        ));
+                                // if (prefs.getBool('code') == true) {
+                                //   Navigator.pushNamed(
+                                //       context, 'change_password');
+                                // }
+                                // await showDialog(
+                                //     context: context,
+                                //     builder: (BuildContext context) =>
+                                //         AlertDialog(
+                                //           title: const Text(
+                                //               'Información del usuario'),
+                                //           content: Text(respuesta),
+                                //           actions: [
+                                //             TextButton(
+                                //                 onPressed: () {
+                                //                   Navigator.pop(context);
+                                //                 },
+                                //                 child: const Text('Cancelar'))
+                                //           ],
+                                //         ));
+                                await Navigator.pushNamed(context, 'menu');
                                 await Future.delayed(
                                     const Duration(seconds: 3));
                               },
                               style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.green,
+                                  backgroundColor: Color(0xffFF3941),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20))),
                               child: const Text(

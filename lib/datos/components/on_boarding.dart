@@ -1,6 +1,5 @@
-import 'package:actividad1/splash/splash_view.dart';
 import 'package:flutter/material.dart';
-import 'package:actividad1/screens/components/content_boarding.dart';
+import 'package:actividad1/datos/components/content_boarding.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({Key? key}) : super(key: key);
@@ -13,39 +12,21 @@ class _OnBoardingState extends State<OnBoarding> {
   int currentPage = 0;
   List<Map<String, String>> listBoarding = [
     {
-      "text": "ESPARCIMIENTO",
-      "text1": "Brindamos todos los servicios para consentir a tu mascota",
+      "text": "RITMO CARDIACO",
+      "text1": "95lpm",
       "image": "assets/images/B1.png"
     },
     {
-      "text": "ADOPTCIÓN",
-      "text1":
-          "Nulla faucibus tellus ut odio scelerisque vitae molestie lectus feugiat.",
+      "text": "SATURACIÓN DE OXÍGENO",
+      "text1": "96%",
       "image": "assets/images/B2.png"
     },
-    {
-      "text": "HOSPITALIDAD",
-      "text1":
-          "Nulla faucibus tellus ut odio scelerisque vitae molestie lectus feugiat.",
-      "image": "assets/images/B3.png"
-    },
-    {
-      "text": "VETERINARIA",
-      "text1":
-          "Nulla faucibus tellus ut odio scelerisque vitae molestie lectus feugiat.",
-      "image": "assets/images/B4.png"
-    },
-    {
-      "text": "TIENDA",
-      "text1": "Compra todas las necesidades de tu mascota sin salir de casa.",
-      "image": "assets/images/B5.png"
-    },
+    {"text": "TEMPERATURA", "text1": "34°C", "image": "assets/images/B3.png"},
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
+    return Column(
       children: [
         Expanded(
           flex: 4,
@@ -70,14 +51,8 @@ class _OnBoardingState extends State<OnBoarding> {
             (index) => Pages(index: index, currentPage: currentPage),
           ),
         ),
-        Expanded(
-            flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [buttomBoarding(50, 330, "Botton")],
-            )),
       ],
-    ));
+    );
   }
 
   buttomBoarding(double height, double width, String test) {
@@ -108,7 +83,7 @@ class _OnBoardingState extends State<OnBoarding> {
   }
 
   void cambiarVista() {
-    if (currentPage < 4) {
+    if (currentPage < 3) {
       setState(() {
         currentPage++;
       });

@@ -9,7 +9,7 @@ class ApiAuth {
 
   Future<String> login(String email, String password) async {
     final response =
-        await _dio.post('http://192.168.0.16:3000/api/login', data: {
+        await _dio.post('http://192.168.0.12:3000/api/user/login', data: {
       'email': email,
       'password': password,
     });
@@ -22,18 +22,25 @@ class ApiAuth {
 
   Future<String> emailVerify(String email) async {
     final response =
-        await _dio.post('http://192.168.0.16', data: {'email': email});
+        await _dio.post('http://192.168.0.12', data: {'email': email});
     SharedPreferences prefs = await SharedPreferences.getInstance();
     _logger.i('Response: ${response.data}');
     return 'Respuesta: ${response.data}';
   }
-
+  Future<String> profile(String nombre,String email, String password, String edad, String sexo, String estatura, String peso, String fechaNacimiento, String domicilio, String telefonoPersonal, String telefonoEmergencia, String institucion, String seguroSocial, String medicoTratante) async {
+    final response =
+        await _dio.post('http://',data:{
+          "email": email,
+        });
+        _logger.i('Response: ${response.data}');
+    return 'Respuesta: ${response.data}';
+  }
 
   Future<String> register(String name, String email, String password, String edad, String sexo, String estatura, String peso, String fechaNacimiento, String domicilio, String telefonoPersonal, String telefonoEmergencia, String institucion, String seguroSocial, String medicoTratante) async {
     final response =
-        await _dio.post('http://192.168.0.16:3000/api/register', data: {
+        await _dio.post('http://192.168.0.12:3000/api/user/register', data: {
       "email": email,
-      "name": name,
+      "nombre": name,
       "password": password,
       "edad": edad,
       "sexo": sexo,

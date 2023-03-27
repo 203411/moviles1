@@ -12,17 +12,10 @@ class ContentBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 60.0, bottom: 40),
-      child: Column(
+    return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            Image.asset(
-              image,
-              width: 300,
-              height: 300,
-            ),
             Text(
               text,
               style: const TextStyle(
@@ -31,7 +24,12 @@ class ContentBoarding extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Roboto',
               ),
-            )
+            ),
+            Image.asset(
+              image,
+              width: 300,
+              height: 300,
+            ),
           ]),
           Padding(
               padding: const EdgeInsets.only(top: 40),
@@ -40,12 +38,11 @@ class ContentBoarding extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Colors.grey,
-                  fontSize: 22,
+                  fontSize: 40,
                   fontFamily: 'Roboto',
                 ),
               ))
         ],
-      ),
-    );
+      );
   }
 }
